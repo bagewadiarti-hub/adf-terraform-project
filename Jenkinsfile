@@ -12,7 +12,7 @@ pipeline {
 
         stage('Terraform Init') {
             steps {
-                bat 'terraform init'
+                bat 'terraform init -reconfigure'
             }
         }
 
@@ -24,13 +24,13 @@ pipeline {
 
         stage('Terraform Plan') {
             steps {
-                bat 'terraform plan'
+                bat 'terraform plan -out=tfplan'
             }
         }
 
         stage('Terraform Apply') {
             steps {
-                bat 'terraform apply -auto-approve'
+                bat 'terraform apply tfplan'
             }
         }
     }
