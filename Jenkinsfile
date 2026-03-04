@@ -12,7 +12,7 @@ pipeline {
 
         stage('Terraform Init') {
             steps {
-                bat 'terraform init -reconfigure'
+                bat 'terraform init -reconfigure -migrate-state -force-copy'
             }
         }
 
