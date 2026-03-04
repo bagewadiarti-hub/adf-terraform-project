@@ -10,12 +10,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/bagewadiarti-hub/adf-terraform-project.git'
-            }
-        }
-
         stage('Terraform Init') {
             steps {
                 bat 'terraform init'
